@@ -6,6 +6,7 @@ import web.dao.UserDaoImp;
 import web.model.User;
 
 import java.util.List;
+
 @Component
 public class UserServiceImp implements UserService {
     private UserDao userDao;
@@ -22,5 +23,20 @@ public class UserServiceImp implements UserService {
     @Override
     public void saveUsers(User user) {
         userDao.saveUsers(user);
+    }
+
+    @Override
+    public User getUser(int ID) {
+        return userDao.getUser(ID);
+    }
+
+    @Override
+    public void updateUser(User user) {
+        userDao.updateUser(user);
+    }
+
+    @Override
+    public void deleteUser(int ID) {
+        userDao.deleteUser(ID);
     }
 }

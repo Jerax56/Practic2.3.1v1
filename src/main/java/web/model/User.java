@@ -9,7 +9,7 @@ import java.util.Objects;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID;
+    private int ID;
     @Column(name = "name")
     private String name;
     @Column(name = "surname")
@@ -18,17 +18,17 @@ public class User {
     public User() {
     }
 
-    public User(Long ID, String name, String surname) {
+    public User(int ID, String name, String surname) {
         this.ID = ID;
         this.name = name;
         this.surname = surname;
     }
 
-    public Long getID() {
+    public int getID() {
         return ID;
     }
 
-    public void setID(Long ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
 
