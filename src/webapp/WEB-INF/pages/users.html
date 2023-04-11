@@ -34,10 +34,11 @@
                 <button type="submit" class="btn btn-primary">Update</button>
             </td>
         </form>
-        <form th:action="@{/deleteUser}" method="GET">
+        <form th:action="@{/deleteUser}" th:method="post">
             <input type="hidden" name="ID" th:value="${user.getID()}"/>
+            <input type="hidden" name="_method" th:value="DELETE"/>
             <td>
-                <button type="delete" class="btn btn-primary">Delete</button>
+                <button type="submit" class="btn btn-primary">Delete</button>
             </td>
         </form>
     </tr>

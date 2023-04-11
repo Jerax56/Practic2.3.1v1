@@ -9,6 +9,7 @@ import java.util.List;
 
 @Component
 public class UserServiceImp implements UserService {
+
     private UserDao userDao;
 
     public UserServiceImp(UserDao userDao) {

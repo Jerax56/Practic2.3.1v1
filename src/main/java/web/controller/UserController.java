@@ -3,20 +3,18 @@ package web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import web.model.User;
 import web.service.UserService;
 
 @Controller
 public class UserController {
+
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @GetMapping(value = "/")
-    String getUsers(Model model) {
+    public String getUsers(Model model) {
         model.addAttribute("users", userService.getUsers());
         return "users";
     }
@@ -43,7 +41,13 @@ public class UserController {
         return "user-info";
     }
 
-    @GetMapping(value = "/deleteUser")
+    @PatchMapping(value = "/updateUser")
+    public String updateUser(@RequestParam("ID") int ID, @RequestBody User user) {
+        userService.updateUser(user);
+        return "redirect:/";
+    }
+
+    @DeleteMapping(value = "/deleteUser")
     public String deleteUser(@RequestParam("ID") int ID) {
         userService.deleteUser(ID);
         return "redirect:/";

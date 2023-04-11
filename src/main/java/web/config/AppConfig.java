@@ -21,7 +21,6 @@ import java.util.Properties;
 @EnableTransactionManagement
 public class AppConfig {
 
-
     private final Environment environment;
 
     @Autowired
